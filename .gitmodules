@@ -1,0 +1,12 @@
+[submodule "ms"]
+	path = ms
+	url = https://github.com/sasp1/projectd-ms.git
+[submodule "auth_ms"]
+	path = auth_ms
+	url = https://github.com/sasp1/projectd-auth-ms.git
+[submodule "api_gateway"]
+	path = api_gateway
+	url = https://github.com/sasp1/projectd-api-gateway.git
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/sasp1/projectd-frontend.git

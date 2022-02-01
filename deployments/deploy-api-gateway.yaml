@@ -1,0 +1,38 @@
+api-gatewayVersion: apps/v1
+kind: Deployment
+metadata:
+  # Metadata describes the deployment itself
+  name: api-gateway
+spec:
+  selector:
+    # Tell the deployment to match the pod it's deploying
+    matchLabels:
+      app: api-gateway
+  replicas: 1
+  # podTemplate describes the pod
+  template:
+    metadata:
+      # Label for the pod that is launched
+      labels:
+        app: api-gateway
+    spec:
+      containers:
+      - name: api-gateway
+        image: api-gateway
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 3000
+---
+api-gatewayVersion: v1
+kind: Service
+metadata:
+  name: api-gateway
+spec:
+  selector:
+    app: api-gateway
+  ports:
+    - port: 3000
+      targetPort: 3000
+      nodePort: 30001
+  type: LoadBalancer
+
